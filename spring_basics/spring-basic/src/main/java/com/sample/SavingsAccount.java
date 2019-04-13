@@ -1,8 +1,10 @@
 package com.sample;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component("saving")
+@Primary//This can be used to define which bean will get priority
 public class SavingsAccount implements IAccount {
 
 	private String accountType;

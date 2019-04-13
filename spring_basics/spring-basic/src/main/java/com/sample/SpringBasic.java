@@ -24,6 +24,9 @@ public class SpringBasic implements CommandLineRunner {
 	private IAccount current;
 	
 	@Autowired
+	private IAccount autowiredByPrimary;
+	
+	@Autowired
 	private ApplicationContext context;
 	
 	public static void main(String[] args)  {
@@ -58,6 +61,8 @@ public class SpringBasic implements CommandLineRunner {
 		//Validating
 		s=(SavingsAccount) context.getBean("saving", IAccount.class);
 		System.out.println("Default ::"+s.getType());
+		
+		System.out.println("Autowired by Primary::"+autowiredByPrimary.getType());
 		
 		
 	}
