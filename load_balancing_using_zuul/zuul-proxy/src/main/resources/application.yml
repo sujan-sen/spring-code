@@ -1,0 +1,35 @@
+server:
+  port: 1111    #default port where the service will be started
+ 
+eureka:         #tells about the Eureka server details and its refresh time
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8282/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+ 
+spring:    
+  application:
+    name: zuul-proxy
+ 
+#Registering with ip    
+#zuul:
+#  routes:
+#    account:
+#      url: http://localhost:8098
+      
+      
+zuul:
+  routes:
+    account:
+      path: /account/**
+      serviceId: account-service
+    address:
+      path: /address/**
+      serviceId: address-service
+      

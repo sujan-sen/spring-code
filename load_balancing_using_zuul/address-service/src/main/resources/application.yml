@@ -1,0 +1,28 @@
+server:
+  port: ${PORT:0}    #Random port
+ 
+eureka:         #tells about the Eureka server details and its refresh time
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8282/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+      
+ 
+spring:    
+  application:
+    name: address-service   #current service name to be used by the eureka server
+     
+management:
+  security:
+    enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.
+ 
+logging:
+  level:
+    com.example.howtodoinjava: DEBUG
