@@ -1,0 +1,5 @@
+Problems Address:
+
+1. How to inject an Interface which has multiple implementations
+2. Usage of CommandLineRunner
+3. Reinitialization of SpringBean
